@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <title>Basils Gatukök</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 1.5rem; }
+    h1, h2 { margin-bottom: 0.3rem; }
+    .menu-section { margin-top: 2rem; }
+    .menu-item { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 0.3rem 0; }
+    .menu-name { font-weight: 600; }
+    .menu-desc { font-size: 0.9rem; color: #555; }
+    .menu-price { font-weight: 600; white-space: nowrap; }
+    .category-title { margin-top: 1.5rem; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+  <h1>Basils Gatukök</h1>
+
+  <section>
+    <h2>Öppettider</h2>
+    <p>Mån–Fre: 11:00 – 21:00<br />
+       Lör–Sön: 12:00 – 22:00</p>
+  </section>
+
+  <section>
+    <h2>Hitta hit</h2>
+    <p>Exempelgatan 12, 123 45 Stad</p>
+    <!-- Här kan du slänga in en Google Maps-iframe senare -->
+  </section>
+
+  <section class="menu-section">
+    <h2>Meny</h2>
+    <div id="menu-container">
+      <p>Laddar meny...</p>
+    </div>
+  </section>
+
+  <script>
+    const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTxKBfA7JrcpQEKlg9KI5OoRw5kxsAjQF0A2nSDBAiZ_P9_CYxRcAXaXX9xR0_Z8ZHvpNBKWu3eWNcl/pub?gid=0&single=true&output=csv";
+
+    async function loadMenu() {
+      const container = document.getElementById("menu-container");
+      try {
+        const res = await fetch(SHEET_CSV_URL);
+        const text = await res.text();
+
+        // Enkel CSV-parser (funkar bra så länge ni inte har kommatecken i fälten)
+        const lines = text.trim().split("\n");
+        const header = lines[0].split(",");
+        const rows = lines.slice(1).map(line => line.split(","));
+
+        const idxKategori = header.indexOf("kategori");
+        const idxNamn = header.indexOf("namn");
+        const idxBeskrivning = header.indexOf("beskrivning");
+        const idxPris = header.indexOf("pris");
+
+        if (idxNamn === -1 || idxPris === -1) {
+          container.innerHTML = "<p>Kunde inte läsa menyn (saknar kolumnerna 'namn' och 'pris').</p>";
+          return;
+        }
+
+        // Gruppera per kategori
+        const itemsByCategory = {};
+        for (const row of rows) {
+          const kat = (row[idxKategori] || "Övrigt").trim();
+          const item = {
+            name: row[idxNamn]?.trim() || "",
+            desc: row[idxBeskrivning]?.trim() || "",
+            price: row[idxPris]?.trim() || ""
+          };
+          if (!itemsByCategory[kat]) itemsByCategory[kat] = [];
+          itemsByCategory[kat].push(item);
+        }
+
+        // Bygg HTML
+        container.innerHTML = "";
+        Object.keys(itemsByCategory).forEach(category => {
+          const catTitle = document.createElement("div");
+          catTitle.className = "category-title";
+          catTitle.textContent = category;
+          container.appendChild(catTitle);
+
+          itemsByCategory[category].forEach(item => {
+            const div = document.createElement("div");
+            div.className = "menu-item";
+
+            const left = document.createElement("div");
+            const name = document.createElement("div");
+            name.className = "menu-name";
+            name.textContent = item.name;
+            left.appendChild(name);
+
+            if (item.desc) {
+              const desc = document.createElement("div");
+              desc.className = "menu-desc";
+              desc.textContent = item.desc;
+              left.appendChild(desc);
+            }
+
+            const right = document.createElement("div");
+            right.className = "menu-price";
+            right.textContent = item.price + " kr";
+
+            div.appendChild(left);
+            div.appendChild(right);
+            container.appendChild(div);
+          });
+        });
+      } catch (err) {
+        console.error(err);
+        container.innerHTML = "<p>Kunde inte ladda menyn just nu.</p>";
+      }
+    }
+
+    loadMenu();
+  </script>
+</body>
+</html>
