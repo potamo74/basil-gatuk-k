@@ -33,7 +33,15 @@ const SHEET_CSV_URL =
     container.innerHTML = "<p>Laddar meny…</p>";
   
     try {
-      const res = await fetch(SHEET_CSV_URL);
+      const res = await fetch(SHEET_CSV_URL, {
+        method: "GET",
+        mode: "cors",
+        cache: "no-cache",
+        headers: {
+          "Accept": "text/csv,text/plain,*/*"
+        }
+      });
+      
       if (!res.ok) throw new Error("HTTP-fel: " + res.status);
   
       const text = await res.text();
