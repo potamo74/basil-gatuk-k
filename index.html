@@ -4,32 +4,148 @@
   <meta charset="UTF-8" />
   <title>Basils Gatukök</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
+  <!-- Topp-remsa i dina accentfärger, inspirerad av leswan -->
+  <div class="announcement-bar">
+    Chillen på grillen
+  </div>
 
-  <header>
-    <h1>Basils Gatukök</h1>
-    <p class="tagline">Äkta gatukäk – snabbt och gott</p>
+  <!-- HERO: adress – logga – öppettider + stor bild -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-brand-row">
+        <div class="hero-side hero-left">
+          <div class="hero-label">Gatukök</div>
+          <div class="hero-address">Kungsgatan 29, Eskilstuna</div>
+        </div>
+
+        <div class="hero-center">
+          <!-- Byt ut src mot din logga / namnbild från Photoshop -->
+          <img src="assets/lang.png" alt="Basils Gatukök" class="hero-logo">
+        </div>
+
+        <div class="hero-side hero-right">
+          <div class="hero-label">Öppettider</div>
+          <div class="hero-hours">Se öppettider nedan</div>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <section class="box">
-    <h2>Öppettider</h2>
-    <p>Mån–Fre: 11:00 – 21:00<br>Lör–Sön: 12:00 – 22:00</p>
-  </section>
+    <!-- OM BASILS -->
+    <section class="section">
+      <div class="section-inner">
+        <h2 class="section-title">Basils Gatukök</h2>
+        <p class="section-text">
+          Basils Gatukök är ett nyöppnat gatukök i Eskilstuna med fokus på enkla,
+          goda rätter som mättar. Vi håller det avskalat och ärligt – bra råvaror,
+          generösa portioner och schyssta priser.
+        </p>
+        <p class="section-text">
+          Kom förbi för en snabb burgare, kebabtallrik eller något i handen på vägen hem.
+          Vår idé är enkel: du ska bli mätt, nöjd och vilja komma tillbaka.
+        </p>
+      </div>
+    </section>
 
-  <section class="box">
-    <h2>Hitta hit</h2>
-    <p>Exempelgatan 12, 123 45 Stad</p>
-  </section>
+  <!-- MENY (kopplad till script.js / Google Sheet) -->
+  <section class="section" id="menu">
+    <div class="section-inner">
+      <h2 class="section-title">Meny</h2>
+      <p class="section-sub">
+      </p>
 
-  <section class="menu-section box">
-    <h2>Meny</h2>
-    <div id="menu-container">
-      <p>Laddar meny...</p>
+      <div id="menu-container" class="menu-section">
+        <!-- script.js fyller i kategorier och rätter här -->
+      </div>
     </div>
   </section>
 
+  <!-- OM BASILS -->
+  <section class="section">
+    <div class="section-inner">
+      <h2 class="section-title">Om Basils</h2>
+      <p class="section-text">
+        Basils Gatukök är ett nyöppnat gatukök i Eskilstuna med fokus på enkla,
+        goda rätter som mättar. Vi håller det avskalat och ärligt – bra råvaror,
+        generösa portioner och schyssta priser.
+      </p>
+      <p class="section-text">
+        Kom förbi för en snabb burgare, kebabtallrik eller något i handen på vägen hem.
+        Vår idé är enkel: du ska bli mätt, nöjd och vilja komma tillbaka.
+      </p>
+    </div>
+  </section>
+
+  <!-- ÖPPETTIDER -->
+  <section class="section" id="hours">
+    <div class="section-inner">
+      <h2 class="section-title">Öppettider</h2>
+      <div class="info-grid">
+        <div class="info-row">
+          <span>Måndag–Torsdag</span>
+          <span>11:00 – 19:00</span>
+        </div>
+        <div class="info-row">
+          <span>Fredag</span>
+          <span>11:00 – 19:00 &nbsp; / &nbsp; 22:30 – 03:30</span>
+        </div>
+        <div class="info-row">
+          <span>Lördag</span>
+          <span>22:30 – 03:30</span>
+        </div>
+        <div class="info-row">
+          <span>Söndag</span>
+          <span>Stängt</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HITTA HIT / GOOGLE MAPS -->
+  <section class="section" id="location">
+    <div class="section-inner">
+      <h2 class="section-title">Hitta hit</h2>
+      <p class="section-sub">
+        Du hittar oss på Kungsgatan 29 i Eskilstuna. Perfekt för både take away och att äta på plats.
+      </p>
+
+      <div class="map-wrapper">
+        <!-- Byt ut src nedan mot din riktiga Google Maps-embed-länk -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2032.6894047456958!2d16.5101772!3d59.3715225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465ef2b60b57678b%3A0xd1592182fdfe270f!2sKungsgatan%2029%2C%20632%2018%20Eskilstuna!5e0!3m2!1ssv!2sse!4v1763382255451!5m2!1ssv!2sse"
+         width="600" height="450" style="border:0;"
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>"
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="section" id="contact">
+    <div class="section-inner">
+      <h2 class="section-title">Kontakt</h2>
+      <div class="info-list">
+        <p><strong>Telefon:</strong> <a href="tel:0700000000">070-000 00 00</a></p>
+        <p><strong>Instagram:</strong> <a href="#" target="_blank">@basilsgatukok</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      © 2025 Basils Gatukök – Hemsida & Design: Carl Rosvall
+    </div>
+  </footer>
+
+  <!-- Meny-scriptet (Google Sheets) -->
   <script src="script.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

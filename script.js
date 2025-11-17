@@ -10,14 +10,27 @@ async function loadMenu() {
 
     const lines = text.trim().split(/\r?\n/);
 
-    // auto-detect delimiter (Google ibland gör ;)
+    if (!lines.length) {
+      container.innerHTML = "<p>Kunde inte läsa menyn (tom fil).</p>";
+      return;
+    }
+
     const firstLine = lines[0];
-    const delimiter = firstLine.includes(";") ? ";" : ",";
+
+    // Kolla först efter tabbar, annars ; eller ,
+    let delimiter = "\t";
+    if (firstLine.includes("\t")) {
+      delimiter = "\t";
+    } else if (firstLine.includes(";")) {
+      delimiter = ";";
+    } else if (firstLine.includes(",")) {
+      delimiter = ",";
+    }
 
     const rawHeader = firstLine.split(delimiter);
-    const header = rawHeader.map(h => h.trim().toLowerCase());
+    const header = rawHeader.map((h) => h.trim().toLowerCase());
 
-    const rows = lines.slice(1).map(line => line.split(delimiter));
+    const rows = lines.slice(1).map((line) => line.split(delimiter));
 
     const idxKategori = header.indexOf("kategori");
     const idxNamn = header.indexOf("namn");
@@ -25,7 +38,8 @@ async function loadMenu() {
     const idxPris = header.indexOf("pris");
 
     if (idxNamn === -1 || idxPris === -1) {
-      container.innerHTML = "<p>Kunde inte läsa menyn (saknar kolumnnamn).</p>";
+      container.innerHTML =
+        "<p>Kunde inte läsa menyn (saknar kolumnnamn).</p>";
       return;
     }
 
@@ -35,25 +49,36 @@ async function loadMenu() {
       if (!row[idxNamn] && !row[idxPris]) continue;
 
       const kat = (row[idxKategori] || "Övrigt").trim();
-      const item = {
-        name: (row[idxNamn] || "").trim(),
-        desc: (row[idxBeskrivning] || "").trim(),
-        price: (row[idxPris] || "").trim()
-      };
+      const name = (row[idxNamn] || "").trim();
+      let desc = idxBeskrivning !== -1 ? (row[idxBeskrivning] || "").trim() : "";
+      let price = (row[idxPris] || "").trim();
+
+      const hasDigits = (str) => /\d/.test(str);
+
+      if (!hasDigits(price) && !desc) {
+        const extra = row.slice(idxPris + 1).find((cell) => cell && hasDigits(cell));
+        if (extra) {
+          desc = price;          // t.ex. "sallad"
+          price = extra.trim();  // t.ex. "80:-"
+        }
+      }
+
+      const item = { name, desc, price };
 
       if (!itemsByCategory[kat]) itemsByCategory[kat] = [];
       itemsByCategory[kat].push(item);
+
     }
 
     container.innerHTML = "";
 
-    Object.keys(itemsByCategory).forEach(category => {
-      const catTitle = document.createElement("div");
+    Object.keys(itemsByCategory).forEach((category) => {
+      const catTitle = document.createElement("h3");
       catTitle.className = "category-title";
       catTitle.textContent = category;
       container.appendChild(catTitle);
 
-      itemsByCategory[category].forEach(item => {
+      itemsByCategory[category].forEach((item) => {
         const div = document.createElement("div");
         div.className = "menu-item";
 
