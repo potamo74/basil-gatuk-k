@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <title>Basils Gatukök</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
-  <!-- Topp-remsa i dina accentfärger -->
-  <div class="announcement-bar">
+  <!-- Topp-remsa i accentfärg -->
+  <div class="announcement-bar fade-down">
     Chillen på grillen
   </div>
 
   <!-- HERO: adress – logga – öppettider -->
-  <header class="hero">
+  <header class="hero fade-up">
     <div class="hero-inner">
       <div class="hero-brand-row">
-        <div class="hero-side hero-left">
+        <div class="hero-side hero-left fade-left">
           <div class="hero-label">Gatukök</div>
           <!-- KLICKBAR ADRESS -> KARTAN -->
           <a href="#location" class="hero-address hero-link">
@@ -24,11 +24,11 @@
           </a>
         </div>
 
-        <div class="hero-center">
+        <div class="hero-center fade-up">
           <img src="assets/lang.png" alt="Basils Gatukök" class="hero-logo">
         </div>
 
-        <div class="hero-side hero-right">
+        <div class="hero-side hero-right fade-right">
           <div class="hero-label">Öppettider</div>
           <!-- KLICKBARA ÖPPETTIDER -> ÖPPETTIDER-SEKTIONEN -->
           <a href="#hours" class="hero-hours hero-link">
@@ -40,36 +40,35 @@
   </header>
 
   <!-- MENY (kopplad till script.js / Google Sheet) -->
-  <section class="section" id="menu">
+  <section class="section fade-up" id="menu">
     <div class="section-inner">
-      <h2 class="section-title">Meny</h2>
-      <p class="section-sub"></p>
+      <h2 class="section-title fade-up">Meny</h2>
+      <p class="section-sub fade-up"></p>
 
-      <div id="menu-container" class="menu-section">
+      <div id="menu-container" class="menu-section fade-left">
         <!-- script.js fyller i kategorier och rätter här -->
       </div>
     </div>
   </section>
 
-    <!-- INTRO: BASILS GATUKÖK (centrerad text) -->
-    <section class="section section--intro" id="about">
-      <div class="section-inner">
-        <h2 class="section-title">Basils Gatukök</h2>
-        <p class="section-text">
-          Skriv nåt najs här
-        </p>
-        <p class="section-text">
-          något ännu mer fint här
-        </p>
-      </div>
-    </section>
-  
+  <!-- INTRO: BASILS GATUKÖK (centrerad text) -->
+  <section class="section section--intro fade-up" id="about">
+    <div class="section-inner">
+      <h2 class="section-title fade-up">Basils Gatukök</h2>
+      <p class="section-text fade-up">
+        Skriv nåt najs här
+      </p>
+      <p class="section-text fade-up">
+        något ännu mer fint här
+      </p>
+    </div>
+  </section>
 
   <!-- ÖPPETTIDER -->
-  <section class="section" id="hours">
+  <section class="section fade-right" id="hours">
     <div class="section-inner">
-      <h2 class="section-title">Öppettider</h2>
-      <div class="info-grid">
+      <h2 class="section-title fade-up">Öppettider</h2>
+      <div class="info-grid fade-up">
         <div class="info-row">
           <span>Måndag–Torsdag</span>
           <span>11:00 – 19:00</span>
@@ -91,18 +90,18 @@
   </section>
 
   <!-- HITTA HIT / GOOGLE MAPS -->
-  <section class="section" id="location">
+  <section class="section fade-left" id="location">
     <div class="section-inner">
-      <h2 class="section-title">Hitta hit</h2>
-      <p class="section-sub">
+      <h2 class="section-title fade-up">Hitta hit</h2>
+      <p class="section-sub fade-up">
         Du hittar oss på Kungsgatan 29 i Eskilstuna.
       </p>
 
-      <div class="map-wrapper">
+      <div class="map-wrapper fade-up">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2032.6894047456958!2d16.5101772!3d59.3715225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465ef2b60b57678b%3A0xd1592182fdfe270f!2sKungsgatan%2029%2C%20632%2018%20Eskilstuna!5e0!3m2!1ssv!2sse!4v1763382255451!5m2!1ssv!2sse"
          width="600" height="450" style="border:0;"
-        allowfullscreen="" 
-        loading="lazy" 
+        allowfullscreen=""
+        loading="lazy"
         referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
@@ -110,15 +109,15 @@
   </section>
 
   <!-- 
-  kontakt
-  <section class="section" id="contact">
+  <section class="section fade-up" id="contact">
     <div class="section-inner">
-      <h2 class="section-title">Kontakt</h2>
-      <div class="info-list">
+      <h2 class="section-title fade-up">Kontakt</h2>
+      <div class="info-list fade-up">
         <p><strong>Instagram:</strong> <a href="#" target="_blank">@basils.gatukok</a></p>
       </div>
     </div>
-  </section> -->
+  </section>
+  -->
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -127,7 +126,7 @@
     </div>
   </footer>
 
-  <!-- Meny-scriptet (Google Sheets) -->
+  <!-- Meny-scriptet (Google Sheets + animationer) -->
   <script src="script.js"></script>
 </body>
 </html>
