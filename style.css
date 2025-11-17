@@ -113,7 +113,7 @@ a:hover {
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background-color: var(--green);
+  background-color: var(--yellow);
   margin-right: 0.5rem;
 }
 
@@ -127,7 +127,7 @@ a:hover {
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background-color: var(--yellow);
+  background-color: var(--green);
   margin-left: 0.5rem;
 }
 
