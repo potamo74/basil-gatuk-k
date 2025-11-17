@@ -332,36 +332,35 @@ a:hover {
 }
 
 /* ANIMATIONER – scroll reveal */
+/* Synligt läge som standard (ifall JS inte körs) */
 
 .fade-up,
 .fade-left,
 .fade-right,
 .fade-down {
-  opacity: 0;
-  transform: translateY(0);
+  opacity: 1;
+  transform: none;
   transition: 700ms ease;
 }
 
-.fade-up {
-  transform: translateY(30px);
+/* När JS lägger på .reveal får de en liten rörelse/”pop” */
+
+.fade-up.reveal {
+  transform: translateY(-6px);
 }
 
-.fade-down {
-  transform: translateY(-30px);
+.fade-down.reveal {
+  transform: translateY(6px);
 }
 
-.fade-left {
-  transform: translateX(-40px);
+.fade-left.reveal {
+  transform: translateX(-6px);
 }
 
-.fade-right {
-  transform: translateX(40px);
+.fade-right.reveal {
+  transform: translateX(6px);
 }
 
-.reveal {
-  opacity: 1 !important;
-  transform: translate(0, 0) !important;
-}
 
 /* RESPONSIVE */
 
