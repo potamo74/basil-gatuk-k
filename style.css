@@ -34,11 +34,11 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ANNOUNCEMENT BAR */
+/* ANNOUNCEMENT BAR – NU GUL HÖGST UPP */
 
 .announcement-bar {
-  background-color: var(--contour);
-  color: var(--yellow);
+  background-color: var(--yellow);
+  color: var(--contour);
   font-size: 0.85rem;
   text-align: center;
   padding: 0.45rem 1rem;
@@ -74,6 +74,7 @@ a:hover {
 
 .hero-side {
   font-size: 0.9rem;
+  text-align: center;          /* gör vänster/höger mer symmetriska mot loggan */
 }
 
 .hero-label {
@@ -82,6 +83,18 @@ a:hover {
   font-size: 0.7rem;
   color: rgba(20, 20, 20, 0.6);
   margin-bottom: 0.25rem;
+}
+
+/* Klickbara länkar i hero (adress + öppettider) */
+
+.hero-link {
+  display: inline-block;
+  cursor: pointer;
+  color: inherit;
+}
+
+.hero-link:hover {
+  text-decoration: underline;
 }
 
 .hero-address,
@@ -135,6 +148,18 @@ a:hover {
 .section-inner {
   max-width: 900px;
   margin: 0 auto;
+}
+
+/* Intro-sektionen "Basils Gatukök" – centrerad text */
+
+.section--intro .section-inner {
+  text-align: center;
+}
+
+.section--intro .section-text {
+  max-width: 640px;
+  margin: 0 auto 1rem;
+  text-align: center;
 }
 
 /* Rubriker som i din meny-bild */
