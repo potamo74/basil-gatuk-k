@@ -39,9 +39,9 @@ a:hover {
 .announcement-bar {
   background-color: var(--yellow);
   color: var(--contour);
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   text-align: center;
-  padding: 0.45rem 1rem;
+  padding: 1rem 1rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -99,14 +99,14 @@ a:hover {
 
 .hero-address,
 .hero-hours {
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .hero-address::before {
   content: "";
   display: inline-block;
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 999px;
   background-color: var(--green);
   margin-right: 0.5rem;
@@ -116,14 +116,14 @@ a:hover {
   font-weight: 500;
 }
 
-.hero-hours::before {
+.hero-hours::after {
   content: "";
   display: inline-block;
-  width: 16px;
-  height: 2px;
+  width: 8px;
+  height: 8px;
   border-radius: 999px;
   background-color: var(--yellow);
-  margin-right: 0.4rem;
+  margin-right: 0.5rem;
 }
 
 .hero-center {
@@ -293,7 +293,7 @@ a:hover {
 .footer {
   border-top: 1px solid rgba(49, 9, 9, 0.12);
   padding: 1.2rem 1.5rem 1.6rem;
-  background-color: #ffffff;
+  background-color: var(--green);
 }
 
 .footer-inner {
