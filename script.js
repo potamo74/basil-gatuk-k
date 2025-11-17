@@ -161,7 +161,36 @@ function setupScrollAnimations() {
     .forEach((el) => observer.observe(el));
 }
 
+function updateTodayHours() {
+  const heroHours = document.querySelector(".hero-hours");
+  if (!heroHours) return;
+
+  const today = new Date();
+  const day = today.getDay(); // 0 = söndag, 1 = måndag, ...
+
+  const hoursByDay = {
+    0: { label: "Söndag", text: "Stängt", closed: true },
+    1: { label: "Måndag", text: "11:00 – 19:00" },
+    2: { label: "Tisdag", text: "11:00 – 19:00" },
+    3: { label: "Onsdag", text: "11:00 – 19:00" },
+    4: { label: "Torsdag", text: "11:00 – 19:00" },
+    5: { label: "Fredag", text: "11:00 – 19:00 / 22:30 – 03:30" },
+    6: { label: "Lördag", text: "22:30 – 03:30" },
+  };
+
+  const info = hoursByDay[day];
+
+  if (!info) return;
+
+  if (info.closed) {
+    heroHours.textContent = `${info.label}: Stängt`;
+  } else {
+    heroHours.textContent = `${info.label}: ${info.text}`;
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   loadMenu();
   setupScrollAnimations();
+  updateTodayHours();
 });
