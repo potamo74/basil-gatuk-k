@@ -52,6 +52,41 @@ a:hover {
   z-index: 1000; /* så den ligger över allt annat */
 }
 
+/* INSTAGRAM-RAD */
+
+.social-strip {
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(49, 9, 9, 0.08);
+  padding: 0.4rem 1.5rem 0.6rem;
+}
+
+.social-strip-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #141414;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  text-decoration: underline;
+}
+
+.social-icon {
+  font-size: 1rem;
+}
+
+.social-handle {
+  font-weight: 500;
+  color: var(--green);
+}
 
 /* HERO */
 
