@@ -170,12 +170,12 @@ function updateTodayHours() {
 
   const hoursByDay = {
     0: { label: "Söndag", text: "Stängt", closed: true },
-    1: { label: "Måndag", text: "11:00 – 19:00" },
-    2: { label: "Tisdag", text: "11:00 – 19:00" },
-    3: { label: "Onsdag", text: "11:00 – 19:00" },
-    4: { label: "Torsdag", text: "11:00 – 19:00" },
-    5: { label: "Fredag", text: "11:00 – 19:00 / 22:30 – 03:30" },
-    6: { label: "Lördag", text: "22:30 – 03:30" },
+    1: { label: "Måndag", text: "11:00 – 20:30" },
+    2: { label: "Tisdag", text: "11:00 – 20:30" },
+    3: { label: "Onsdag", text: "11:00 – 20:30" },
+    4: { label: "Torsdag", text: "11:00 – 20:30" },
+    5: { label: "Fredag", text: "11:00 – 20:30 | 23:00 – 03:30" },
+    6: { label: "Lördag", text: "23:00 – 03:30" },
   };
 
   const info = hoursByDay[day];
