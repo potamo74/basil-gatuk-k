@@ -170,7 +170,7 @@ function updateTodayHours() {
 
   const hoursByDay = {
     0: { label: "Söndag", text: "Stängt", closed: true },
-    1: { label: "Måndag", text: "Stängt", closed: true },
+    1: { label: "Måndag", text: "11:00 – 19:00" },
     2: { label: "Tisdag", text: "11:00 – 19:00" },
     3: { label: "Onsdag", text: "11:00 – 19:00" },
     4: { label: "Torsdag", text: "11:00 – 19:00" },
