@@ -52,6 +52,52 @@ a:hover {
   z-index: 1000; /* så den ligger över allt annat */
 }
 
+/* BESTÄLL ONLINE */
+
+.order-section {
+  text-align: center;
+}
+
+.order-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-text {
+  max-width: 600px;
+  margin: 0 auto 25px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.order-button {
+  display: inline-block;
+  padding: 15px 35px;
+
+  background: #ffbf00;
+  color: #111;
+
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  border-radius: 8px;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.order-button:hover {
+  background: #e6ac00;
+  transform: translateY(-2px);
+}
+
+.order-button:active {
+  transform: translateY(0);
+}
+
 /* INSTAGRAM-RAD */
 
 .social-strip {
